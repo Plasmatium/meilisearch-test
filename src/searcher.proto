@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package searcher;
+
+import "google/protobuf/timestamp.proto";
+
+message Doc {
+    string id = 1; // loop id, as mongodb oid
+    string author = 2;
+    KeyFields keyFields = 3;
+    google.protobuf.Timestamp createAt = 4;
+    google.protobuf.Timestamp updateAt = 5;
+    repeated string shared_with = 6;
+}
+
+message KeyFields {
+    string loopTitle = 1;
+    string loopDesc = 2;
+    string loopKind = 3;
+    string slideTitle = 4;
+    string slideDesc = 5;
+    string slideBody = 6;
+}
